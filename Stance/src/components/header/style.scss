@@ -1,0 +1,39 @@
+.header{
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+}
+.bx-menu{
+  font-size: 32px;
+}
+.user-box{
+  border: 1px solid white;
+}
+.user-box:hover{
+  background: #00e1ff;
+  color: white;
+  border: 1px solid transparent;
+}
+.text-purpal:hover{
+  color: #00e1ff;
+}
+.text-logo{
+  
+  color: #00e1ff;
+}
+.hover-user-icon:hover{
+  color: white;
+}
+.menu{
+  border-top: 1px solid white;
+}
+.search-box{
+  outline: none;
+  border: none;
+}
+.bg-blend{
+  background: rgba(0, 0, 0, 0.486);
+}
+.hover-effect:hover{
+  color: #00e1ff;
+}

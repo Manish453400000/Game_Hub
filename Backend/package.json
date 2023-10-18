@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "it's a gaming platfrom where i will create and deploy games from scratch",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manish Dolui",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.6",
+    "nodemon": "^3.0.1"
+  }
+}

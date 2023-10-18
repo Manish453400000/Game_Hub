@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&family=Poppins&display=swap');
+
+
+*{
+  // font-family: 'Poppins', sans-serif;
+  font-family: 'Gabarito', cursive;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.bg-primary{
+  background: #000000;
+}
+.hover-text-main:hover{
+  color: #a200ff;
+}
