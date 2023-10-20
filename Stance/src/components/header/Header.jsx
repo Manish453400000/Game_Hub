@@ -1,10 +1,14 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 import './style.scss'
 import { useState } from 'react'
 import {logo} from '../../assets/index'
 function Header() {
   const [showMenu, setShowMenu] = useState(false)
   const [showSearch, setShowSearch] = useState(false)
+  const navigate = useNavigate();
+
+
   const menuClicked = () => {
     setShowSearch(false)
     showMenu ? setShowMenu(false) : setShowMenu(true)
@@ -13,18 +17,29 @@ function Header() {
     setShowMenu(false)
     showSearch ? setShowSearch(false) : setShowSearch(true)
   }
+
+  const navigationHandler = (location) => {
+    
+      navigate(location)
+    
+  }
+
   return (
     <div className='header'>
       <header className='  flex h-11 text-white bg-blend text-main sm:justify-around justify-between px-2 w-[100%]'>
         <div className="left flex items-center ">
-          <div className='flex items-center '>
+          <div className='flex items-center cursor-pointer '
+          onClick={() => navigationHandler('/')}
+          >
             <h3 className='logo text-[30px] sm:text-[34px]'><span className='text-logo'>S</span>tance</h3>
           </div>
-          <div className='sm:flex hidden items-center user-box px-3 ml-5 rounded-[6px] user-box hover:text-white '>
+          <div className='sm:flex hidden items-center user-box px-3 ml-5 rounded-[6px] user-box hover:text-white cursor-pointer '
+          onClick={() => navigationHandler('/login')}
+          >
             <span className=' flex items-center'>
             <i className='bx bxs-user-circle '></i>
             </span>
-            <h5 className='pl-2 text-[14px]'>Manish9062</h5>
+            <h5 className='pl-2 text-[14px]'>Login/ Sign up</h5>
             {/* User Name */}
           </div>
         </div>
@@ -36,9 +51,11 @@ function Header() {
           </div>
           <nav className='sm:block hidden'>
             <ul className='text-white font-gaba flex   ' >
-              <li className='text-purpal px-3 py-2'>Populer</li>
-              <li className='text-purpal px-3 py-2'>New</li>
-              <li className='text-purpal px-3 py-2'>Support</li>
+              <li className='text-purpal px-3 py-2 cursor-pointer'
+              onClick={() => navigationHandler('/')}
+              >Home</li>
+              <li className='text-purpal px-3 py-2 cursor-pointer'>New</li>
+              <li className='text-purpal px-3 py-2 cursor-pointer'>Support</li>
             </ul>
           </nav>
           <div
