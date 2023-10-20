@@ -1,12 +1,17 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useLocation } from 'react-router-dom'
 import './style.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {logo} from '../../assets/index'
 function Header() {
   const [showMenu, setShowMenu] = useState(false)
   const [showSearch, setShowSearch] = useState(false)
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    setShowMenu(false)
+  }, [location])
 
 
   const menuClicked = () => {
@@ -19,8 +24,7 @@ function Header() {
   }
 
   const navigationHandler = (location) => {
-    
-      navigate(location)
+    navigate(location)
     
   }
 
@@ -33,7 +37,7 @@ function Header() {
           >
             <h3 className='logo text-[30px] sm:text-[34px]'><span className='text-logo'>S</span>tance</h3>
           </div>
-          <div className='sm:flex hidden items-center user-box px-3 ml-5 rounded-[6px] user-box hover:text-white cursor-pointer '
+          <div className='sm:flex hidden items-center user-box px-3 ml-5 rounded-[6px] user-box  cursor-pointer '
           onClick={() => navigationHandler('/login')}
           >
             <span className=' flex items-center'>
@@ -82,9 +86,16 @@ function Header() {
       </div>
       <div className={`w-[100%] relative z-10 menu bg-black ${showMenu ? 'block': 'hidden'}`}>
         <ul className='text-white font-gaba flex flex-col items-center ' >
-              <li className='text-purpal px-3 py-2'>Populer</li>
-              <li className='text-purpal px-3 py-2'>New</li>
-              <li className='text-purpal px-3 py-2'>Support</li>
+              <li className='text-purpal px-3 py-2 cursor-pointer'
+              onClick={() => navigationHandler('/')}
+              >Home</li>
+              <li className='text-purpal px-3 cursor-pointer py-2'>New</li>
+              <li className='text-purpal px-3 cursor-pointer py-2'>Support</li>
+              <li className='text-purpal px-3 cursor-pointer py-2 flex items-center'
+              onClick={() => navigationHandler('/login')}
+              >
+                <i className='bx bxs-user-circle pr-1 '></i>
+                Login</li>
             </ul>
       </div>
     </div>
