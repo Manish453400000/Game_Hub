@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "it's a gaming platfrom where i will create and deploy games from scratch",
+  "description": "it's a gaming platfrom where i will create and deploy simple web games from scratch",
   "main": "index.js",
   "scripts": {
     "server": "nodemon ./app.js",
@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mongoose": "^7.6.3",
     "nodemailer": "^6.9.6",
     "nodemon": "^3.0.1"
   }

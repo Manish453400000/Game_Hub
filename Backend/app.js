@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
-const userData = require("./routes/user_data");
+const userData = require("./routes/userData");
+
+const connectDB = require("./db/connect");
+require("dotenv").config();
 
 const PORT = 3000;
 
@@ -14,6 +17,11 @@ app.get("/", (req, res) => {
 // app.get("/api/v1/user");          --FIND USER DATA
 // app.post("/api/v1/user");         --SAVE USER DATA
 
-app.listen(PORT, () => {
-  console.log(`SERVER IS LISTNING ON PORT: ${PORT}`);
-});
+const start = async () => {
+  await connectDB(process.env.MONGO_URI);
+  app.listen(PORT, () => {
+    console.log(`SERVER IS LISTNING ON PORT: ${PORT}`);
+  });
+};
+
+start();

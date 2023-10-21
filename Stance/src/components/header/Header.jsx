@@ -11,6 +11,7 @@ function Header() {
 
   useEffect(() => {
     setShowMenu(false)
+    setShowSearch(false)
   }, [location])
 
 

@@ -15,10 +15,10 @@ const Footer = () => {
           </ul>
         </div>
         <div className="social-icon">
-          <i class='bx px-2 bxl-facebook-circle'></i>
-          <i class='bx px-2 bxl-twitter' ></i>
-          <i class='bx px-2 bxl-linkedin-square' ></i>
-          <i class='bx px-2 bxl-instagram' ></i>
+          <i className='bx px-2 bxl-facebook-circle'></i>
+          <i className='bx px-2 bxl-twitter' ></i>
+          <i className='bx px-2 bxl-linkedin-square' ></i>
+          <i className='bx px-2 bxl-instagram' ></i>
         </div>
       <p className=' text-[14px] sm:text-[16px] copyright '>&copy;Stance</p>
       </div>
