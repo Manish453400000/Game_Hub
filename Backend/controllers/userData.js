@@ -6,11 +6,19 @@ const createUser = async (req, res) => {
     const user = await User.create(req.body);
     res.status(201).json(user);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json(error.errors.email.message);
   }
 };
-const findUser = (req, res) => {
-  res.send("user found");
+const findUser = async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.body.username });
+    if (!user) {
+      return res.status(404).json({ msg: "please enter a valid username" });
+    }
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
 };
 
 module.exports = {
