@@ -1,48 +1,57 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
+
+//COSTOM HOOKS
+
+//COMPONENTS
+import Button from '../../components/button/Button'
+import Input from './Input'
+import SocialSec from './SocialSec'
+
+//STYLESHEET
 import './style.scss'
 import '../../sass/main.scss'
-import Button from '../../components/button/Button'
-import {google, facebook, gmail} from '../../assets/index'
 
 function SignUpPage() {
-
+  const username = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
   const navigate = useNavigate();
 
-  const navigationHandler = (location) => {
-    
-      navigate(location)
-    
+  const navigationHandler = (location) => { 
+      navigate(location) 
   }
 
+  const signupHandler = () => {
+    const option = {
+      username: "manish88",
+      email: "manish99@gmail.com",
+      password: "manish001"
+    }
+    console.log(saveUserData(option));
+  }
 
   return (
     <div>
       <div className='
-    flex justify-center items-center w-[100vw] h-[90vh] bg-black
+    flex justify-center items-center h-screen w-[100vw] bg-black
     '>
       <div className='bg-white w-[75%] sm:px-8 sm:w-[70%]  lg:w-[65%] xl:w-[30%] max-w-[25rem] min-w-[20rem] rounded-md px-4 pt-5 '>
-        <h3 className=' text-center font-normal text-[18px] sm:text-[20px] font-poppins mb-5  '>Login/ <span className='primary-text'>Sing Up</span></h3>
-        <h4 className=' font-normal text-[14px] sm:text-[16px] font-poppins'>Username</h4>
-        <input name='userName' type="text" className='w-[100%] outline-none px-3 py-2 input ' placeholder='Enter your Username '
+        <h3 className=' text-center font-normal text-[18px] sm:text-[20px] font-poppins mb-5 current-page '>Sing Up/ <span className='text-black'>Login</span></h3>
+        <Input name={'Username'} placeholder={'Enter your Username'} />
+        <Input name={'Email'} placeholder={'Enter your Email'} />
+        <Input name={'Password'} placeholder={'Enter the Password'} />
+        <Input name={'Confirm Password'} placeholder={'Confirm the Password'} />
+        <div className='flex justify-center items-center mb-6 mt-4'
+        
+        >
+        <Button 
+        name={'Sign Up'}
         />
-        <h4 className=' font-normal text-[14px] sm:text-[16px] font-poppins'>Email</h4>
-        <input name='userName' type="text" className='w-[100%] outline-none px-3 py-2 input ' placeholder='Enter your Email '
-        />
-        <h4 className=' font-normal text-[14px]  sm:text-[16px] font-poppins'>Password</h4>
-        <input name='password' type="text" className='w-[100%] outline-none px-3 py-2 input ' placeholder='Enter the Password ' />
-        <h4 className=' font-normal text-[14px] sm:text-[16px] font-poppins'>Confirm Password</h4>
-        <input name='password' type="text" className='w-[100%] outline-none px-3 py-2 input ' placeholder='Confirm the Password ' />
-        <div className='flex justify-center items-center mb-6 mt-4'>
-        <Button name={'Sign Up'}/>
 
         </div>
         <hr className=' bg-gray-400 h-[1px] w-[80%] m-auto ' />
-        <div className='flex justify-center items-center mb-6 my-4'>
-          <img src={google} alt="google" className='w-[35px] h-[35px] mx-3 cursor-pointer' />
-          <img src={facebook} alt="google" className='w-[35px] h-[35px] mx-3 cursor-pointer' />
-          <img src={gmail} alt="google" className='w-[35px] h-[35px] mx-3 cursor-pointer' />
-        </div>
+        <SocialSec />
         <p className=' text-center text-[13px] sm:text-[14px] text-gray-500 cursor-pointer '
         onClick={() => navigationHandler('/login')}
         >I have an existing account</p>

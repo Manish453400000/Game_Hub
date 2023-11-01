@@ -7,9 +7,11 @@ import {
 function HomePage() {
   return (
     <div>
+      <Header />
       <div className='bg-night-dark h-[2000px]'>
         <HeroSection />
       </div>
+      <Footer />
     </div>
   )
 }
